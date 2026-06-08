@@ -1,0 +1,16 @@
+  const form = document.querySelector("#submitBtn");
+
+form.addEventListener("click", function(e) {
+    e.preventDefault(); //  מונע את שליחת הטופס ואת ריענון הדף
+    const username = document.querySelector("#username").value;
+    const email = document.querySelector("#email").value;
+    console.log(username)
+    console.log(email)    
+})
+  if (username.length<5) {
+        alert("שם המשתמש חייב להיות לפחות 5 תווים");
+         return;}
+         if(password.length<8){
+            alert("הסיסמה חייבת להיות לפחות 8 תווים");
+            return;
+         }

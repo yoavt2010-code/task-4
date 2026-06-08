@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="about.js" />
+  </head>
+  <body>
+    <header>
+      
+      <div class="container">
+        <h1>misson</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <div class="Also">
+        <script> const { get } = require("express/lib/response");
+
+const submitBtn = document.querySelector("#submitBtn");
+if (submitBtn) {
+    submitBtn.addEventListener("click", async function () {
+        const username = document.querySelector("#username").value.trim();
+        const email = document.querySelector("#email").value.trim();
+        const phone = document.querySelector("#phone").value.trim();
+        const message = document.querySelector("#message").value.trim();
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert("כתובת אימייל לא חוקית");
+            return;
+        }
+
+        try {
+            const response = await fetch("http://localhost:3000/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, email, phone, message}),
+            });
+
+            const data = await response.json();
+            alert(data.message);
+        } catch (error) {
+            alert("שגיאה בשליחת הטופס. ודא שהשרת פועל.");
+            console.error(error);
+        }
+    });
+} 
+ </script>
+        <h2>Misson</h2>
+        <p>Email: yoavt2010@ofekschool.org.il</p>
+        <p>Phone: 0529266543</p>
+        <p2>Misson: To become a successful software developer and contribute to the community.</p2>
+        <img src="images/deni.webp" alt="DeniAvdija" width="100px" height="100px" id="img1">
+
+
+        <form id="contactForm">
+    <input type="text" id="message" placeholder="הודעה">
+    <button type="button" id="submitBtn">שלח</button>
+     </form>
+
+      </div>
+
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© 2025 My Website. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
+
+</body>
+</html>
